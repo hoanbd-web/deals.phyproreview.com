@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalCodeVal.textContent = code;
         
         // Dynamic redirection link
-        const targetUrl = `https://doubleoakessentials.com/?ref=phyproreview&promo=${code}`;
+        const targetUrl = `https://www.doubleoakessentials.com?sca_ref=11635060.GkfUSSur3axLS6mm&promo=${code}`;
         modalRedirectLink.setAttribute('href', targetUrl);
         
         // Generate a random shopper verification count for authenticity
