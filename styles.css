@@ -2105,3 +2105,31 @@ ol, ul {
         height: 50px;
     }
 }
+
+/* Legal Modal Styling */
+.legal-modal-card {
+    max-width: 600px;
+    width: 100%;
+}
+
+.legal-modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: left;
+    padding-right: 8px;
+    font-size: 13px;
+    color: var(--color-slate-gray);
+    line-height: 1.6;
+}
+
+.legal-modal-body p {
+    margin-bottom: 12px;
+}
+
+.legal-modal-body h5 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: var(--color-navy);
+    font-weight: 700;
+    font-size: 14px;
+}

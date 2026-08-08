@@ -257,4 +257,88 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ---------------------------------------------
+    // 8. Legal Modal Functionality (Google Ads Compliance)
+    // ---------------------------------------------
+    const legalModal = document.getElementById('legal-modal');
+    const closeLegalBtn = document.getElementById('btn-close-legal-modal');
+    const legalTitle = document.getElementById('legal-title-placeholder');
+    const legalContent = document.getElementById('legal-content-placeholder');
+
+    const legalTexts = {
+        about: {
+            title: "About PhyProReview",
+            html: `
+                <p><strong>PhyProReview</strong> is a leading community-driven savings platform dedicated to helping consumers find active coupons, promo codes, and discount deals for physical products and online brands.</p>
+                <p>Our mission is to help shoppers save money on their everyday carry essentials and premium physical store purchases through verified community contributions and AI-backed screening.</p>
+            `
+        },
+        privacy: {
+            title: "Privacy Policy",
+            html: `
+                <p>At PhyProReview, accessible from deals.phyproreview.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by PhyProReview and how we use it.</p>
+                <h5 style="margin-top:16px; margin-bottom:6px; font-size:14px; color:#0f172a; font-weight:700;">1. Log Files</h5>
+                <p>PhyProReview follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks.</p>
+                <h5 style="margin-top:16px; margin-bottom:6px; font-size:14px; color:#0f172a; font-weight:700;">2. Cookies & Affiliate Tracking</h5>
+                <p>We use cookies to store information about visitors' preferences, to record user-specific information on which pages the user accesses or visits, and to customize our web page content based on visitors' browser type or other information. We use affiliate links to redirect visitors to merchant stores. Cookies are used by affiliate networks to track purchases and ensure we receive a referral commission.</p>
+                <h5 style="margin-top:16px; margin-bottom:6px; font-size:14px; color:#0f172a; font-weight:700;">3. Consent</h5>
+                <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+            `
+        },
+        terms: {
+            title: "Terms & Conditions",
+            html: `
+                <p>Welcome to PhyProReview! These terms and conditions outline the rules and regulations for the use of PhyProReview's Website, located at deals.phyproreview.com.</p>
+                <h5 style="margin-top:16px; margin-bottom:6px; font-size:14px; color:#0f172a; font-weight:700;">1. Disclaimers</h5>
+                <p>All coupon codes, promotional offers, discounts, and store statistics displayed on this website are provided "as is" and for informational purposes only. PhyProReview does not warrant or guarantee that any promo code is active, working, or accepted by the merchant. Users are responsible for confirming active discounts at checkout.</p>
+                <h5 style="margin-top:16px; margin-bottom:6px; font-size:14px; color:#0f172a; font-weight:700;">2. Limitation of Liability</h5>
+                <p>PhyProReview, its operators, or contributors shall not be held liable for any damages, transactional losses, or disputes arising between users and listed merchants (including Double Oak Essentials) as a result of using discount codes or visiting merchant links.</p>
+            `
+        },
+        disclosure: {
+            title: "Advertising Disclosure",
+            html: `
+                <p>PhyProReview is a professional, independent coupon database and shopping resource. This website is user-supported and funded through affiliate partnerships.</p>
+                <h5 style="margin-top:16px; margin-bottom:6px; font-size:14px; color:#0f172a; font-weight:700;">Affiliate Commission Disclosure</h5>
+                <p>When you click on coupon buttons ("Get Code" / "Get Deal") or merchant links on this website and subsequently make a purchase, the merchant may pay us a referral commission. This commission does not increase the final price you pay. Affiliate commissions help support the costs of hosting, maintaining, and verifying codes on this database.</p>
+            `
+        }
+    };
+
+    const openLegalModal = (type) => {
+        if (!legalTexts[type]) return;
+        legalTitle.textContent = legalTexts[type].title;
+        legalContent.innerHTML = legalTexts[type].html;
+        legalModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLegalModal = () => {
+        legalModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    // Attach click events to footer links
+    const aboutLink = document.getElementById('link-about');
+    const privacyLink = document.getElementById('link-privacy');
+    const termsLink = document.getElementById('link-terms');
+    const disclosureLink = document.getElementById('link-disclosure');
+
+    if (aboutLink) aboutLink.addEventListener('click', (e) => { e.preventDefault(); openLegalModal('about'); });
+    if (privacyLink) privacyLink.addEventListener('click', (e) => { e.preventDefault(); openLegalModal('privacy'); });
+    if (termsLink) termsLink.addEventListener('click', (e) => { e.preventDefault(); openLegalModal('terms'); });
+    if (disclosureLink) disclosureLink.addEventListener('click', (e) => { e.preventDefault(); openLegalModal('disclosure'); });
+
+    if (closeLegalBtn) {
+        closeLegalBtn.addEventListener('click', closeLegalModal);
+    }
+
+    if (legalModal) {
+        legalModal.addEventListener('click', (e) => {
+            if (e.target === legalModal) {
+                closeLegalModal();
+            }
+        });
+    }
 });

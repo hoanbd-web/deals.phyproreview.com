@@ -744,10 +744,10 @@
                 </div>
                 <div class="footer-column">
                     <h4 class="footer-column-title">Company</h4>
-                    <a href="#about">About PhyProReview</a>
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms & Conditions</a>
-                    <a href="#disclosure">Advertising Disclosure</a>
+                    <a href="#about" id="link-about">About PhyProReview</a>
+                    <a href="#privacy" id="link-privacy">Privacy Policy</a>
+                    <a href="#terms" id="link-terms">Terms & Conditions</a>
+                    <a href="#disclosure" id="link-disclosure">Advertising Disclosure</a>
                 </div>
             </div>
 
@@ -820,6 +820,21 @@
                     <li>Look for the input field marked <strong>"Discount Code"</strong> or <strong>"Promo Code"</strong>.</li>
                     <li>Paste your copied code and press Enter or click <strong>"Apply"</strong>.</li>
                 </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Modal (Google Ads Compliance) -->
+    <div class="modal-overlay" id="legal-modal">
+        <div class="modal-card legal-modal-card">
+            <button class="modal-close-btn" id="btn-close-legal-modal" aria-label="Close modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header">
+                <h4 class="modal-title" id="legal-title-placeholder">Legal Policy</h4>
+            </div>
+            <div class="modal-body legal-modal-body" id="legal-content-placeholder">
+                <!-- Content injected dynamically -->
             </div>
         </div>
     </div>
