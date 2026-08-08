@@ -141,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = title;
         modalCodeVal.textContent = code;
         
-        // Dynamic redirection link
-        const targetUrl = `https://www.doubleoakessentials.com?sca_ref=11635060.GkfUSSur3axLS6mm&promo=${code}`;
+        // Dynamic redirection link (using exact affiliate URL)
+        const targetUrl = 'https://www.doubleoakessentials.com?sca_ref=11635060.GkfUSSur3axLS6mm';
         modalRedirectLink.setAttribute('href', targetUrl);
         
         // Generate a random shopper verification count for authenticity
@@ -157,9 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Open modal
         modal.classList.add('active');
         document.body.style.overflow = 'hidden'; // Lock background scroll
-
-        // Open the store URL in a new window/tab simulating affiliate redirection
-        window.open(targetUrl, '_blank');
     };
 
     // Close modal function
@@ -171,11 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Attach listeners to all reveal buttons
     revealBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            // Prevent event bubbles
-            e.preventDefault();
-            
             // Check if card is expired
-            if (btn.closest('.coupon-card').classList.contains('expired')) {
+            const couponCard = btn.closest('.coupon-card');
+            if (couponCard && couponCard.classList.contains('expired')) {
+                e.preventDefault();
                 return;
             }
 
@@ -184,6 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = btn.getAttribute('data-title');
 
             openModal(code, storeName, title);
+            
+            // We do NOT call e.preventDefault() for active anchors, 
+            // so the browser opens the target="_blank" href natively.
         });
     });
 

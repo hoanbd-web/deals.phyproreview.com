@@ -839,6 +839,8 @@ ol, ul {
 
 /* Reveal Code Button with Coupon Effect */
 .btn-reveal-code {
+    display: block;
+    text-decoration: none;
     background-color: var(--color-citron);
     color: var(--color-navy);
     font-weight: 700;
